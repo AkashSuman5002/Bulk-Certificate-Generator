@@ -1,0 +1,13 @@
+{
+  "event_name": "Python Workshop",
+  "event_date": "2026-10-07",
+  "organization_name": "ABC Institute",
+  "signatory_name": "Dr. John Doe",
+  "recipients": [
+    {"name": "Rahul Sharma", "email": "rahul@example.com", "certificate_id": "CERT-001"},
+    {"name": "Priya Singh", "email": "priya@example.com", "certificate_id": "CERT-002"},
+    {"name": "Alex Morgan", "email": "alex@example.com", "certificate_id": "CERT-003"},
+    {"name": "Sam Taylor", "email": "sam@example.com", "certificate_id": "CERT-004"},
+    {"name": "Jordan Lee", "email": "jordan@example.com", "certificate_id": "CERT-005"}
+  ]
+}

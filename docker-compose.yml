@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: certificates
+      POSTGRES_USER: certificate
+      POSTGRES_PASSWORD: certificate
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U certificate -d certificates"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  api:
+    build: .
+    environment:
+      DATABASE_URL: postgresql+psycopg://certificate:certificate@db:5432/certificates
+      GENERATED_CERTIFICATES_DIR: /app/generated_certificates
+    ports:
+      - "8000:8000"
+    volumes:
+      - certificate_data:/app/generated_certificates
+    depends_on:
+      db:
+        condition: service_healthy
+volumes:
+  postgres_data:
+  certificate_data:
